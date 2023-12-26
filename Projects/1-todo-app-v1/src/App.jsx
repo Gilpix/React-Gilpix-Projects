@@ -12,7 +12,7 @@ function App() {
   // let itemsList = [];
 
   return (
-    <center className="todo-container">
+    <center>
       <AppHeader />
       <AddTodo />
       <ErrorMessage items={itemsList}></ErrorMessage>

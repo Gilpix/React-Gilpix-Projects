@@ -1,5 +1,6 @@
-import TodoButton from "./TodoButtons";
+import TodoButton from "./TodoButton";
 import TodoItem from "./TodoItem";
+import styles from "./TodoItems.module.css";
 
 export default function TodoItems({ items }) {
   return (
@@ -7,7 +8,7 @@ export default function TodoItems({ items }) {
       {items.map((item) => {
         return (
           <div key={item.id}>
-            <div className="row row-align">
+            <div className={`row ${styles.rowAlign}`}>
               <TodoItem todoName={item.name} todoDate={item.date}></TodoItem>
               <TodoButton buttonType="delete"></TodoButton>
             </div>
