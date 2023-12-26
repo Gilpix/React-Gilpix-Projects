@@ -1,5 +1,3 @@
-import { TodoItem } from "./TodoItem";
-
 let TodoButton = ({ buttonType }) => {
   return (
     <div className="col-2">
