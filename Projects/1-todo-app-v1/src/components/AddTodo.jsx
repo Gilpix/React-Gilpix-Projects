@@ -2,7 +2,7 @@ import TodoButton from "./TodoButtons";
 
 function AddTodo() {
   return (
-    <div className="container item-container">
+    <div className="container item-align-left">
       <div className="row ">
         <div className="col-6">
           <input type="text" placeholder="enter name"></input>

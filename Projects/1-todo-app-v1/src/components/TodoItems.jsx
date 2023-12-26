@@ -3,7 +3,7 @@ import TodoItem from "./TodoItem";
 
 export default function TodoItems({ items }) {
   return (
-    <div className="container center m-2 item-container">
+    <div className="container center m-2 item-align-left">
       {items.map((item) => {
         return (
           <div key={item.id}>
