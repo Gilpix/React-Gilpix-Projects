@@ -3,11 +3,3 @@ html body {
   height: 100%;
   background-color: #eda28a;
 }
-
-.calculator {
-  width: 350px;
-  border: 1.5px solid #ffffff;
-  box-shadow: 1px 1px 15px 4px #ffffff;
-  padding: 15px 15px 25px 15px;
-  border-radius: 15px;
-}

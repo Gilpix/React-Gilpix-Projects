@@ -1,5 +1,6 @@
 import "./App.css";
 import CalculatorKeyPad from "./components/CalculatorKeyPad";
+import Container from "./components/Container";
 import Display from "./components/Display";
 import Header from "./components/Header";
 
@@ -39,10 +40,10 @@ function App() {
   return (
     <center>
       <Header heading="Calculator"></Header>
-      <div className="calculator">
+      <Container>
         <Display></Display>
         <CalculatorKeyPad buttonsList={buttonsList}></CalculatorKeyPad>
-      </div>
+      </Container>
     </center>
   );
 }
