@@ -3,6 +3,7 @@ import AppHeader from "./components/AppHeader";
 import TodoItems from "./components/TodoItems";
 import ErrorMessage from "./components/ErrorMessage";
 import "./App.css";
+import Container from "./components/Container";
 
 function App() {
   let itemsList = [
@@ -14,9 +15,11 @@ function App() {
   return (
     <center>
       <AppHeader />
-      <AddTodo />
-      <ErrorMessage items={itemsList}></ErrorMessage>
-      <TodoItems items={itemsList} />
+      <Container>
+        <AddTodo />
+        <ErrorMessage items={itemsList}></ErrorMessage>
+        <TodoItems items={itemsList} />
+      </Container>
     </center>
   );
 }

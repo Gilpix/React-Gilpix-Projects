@@ -3,4 +3,9 @@ input {
   border-radius: 25px;
   padding: 5px;
   padding-left: 10px;
+  border: 1px solid transparent;
+}
+
+input:focus {
+  outline: 0;
 }
