@@ -1,35 +1,50 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import CalculatorKeyPad from "./components/CalculatorKeyPad";
+import Display from "./components/Display";
+import Header from "./components/Header";
 
 function App() {
-  const [count, setCount] = useState(0)
+  let buttonsList = [
+    [
+      { id: 1, value: "C" },
+      { id: 2, value: "1" },
+      { id: 3, value: "2" },
+    ],
+    [
+      { id: 4, value: "+" },
+      { id: 5, value: "3" },
+      { id: 6, value: "4" },
+    ],
+    [
+      { id: 7, value: "-" },
+      { id: 8, value: "5" },
+      { id: 9, value: "6" },
+    ],
+    [
+      { id: 10, value: "x" },
+      { id: 11, value: "7" },
+      { id: 12, value: "8" },
+    ],
+    [
+      { id: 13, value: "/" },
+      { id: 14, value: "9" },
+      { id: 15, value: "0" },
+    ],
+    [
+      { id: 16, value: "=" },
+      { id: 17, value: "." },
+    ],
+  ];
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <center>
+      <Header heading="Calculator"></Header>
+      <div className="calculator">
+        <Display></Display>
+        <CalculatorKeyPad buttonsList={buttonsList}></CalculatorKeyPad>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </center>
+  );
 }
 
-export default App
+export default App;
