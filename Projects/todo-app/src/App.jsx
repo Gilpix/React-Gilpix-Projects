@@ -4,21 +4,35 @@ import TodoItems from "./components/TodoItems";
 import ErrorMessage from "./components/ErrorMessage";
 import "./App.css";
 import Container from "./components/Container";
+import { useState } from "react";
 
 function App() {
-  let itemsList = [
+  let initialTodoItems = [
     { id: 1, name: "Buy Icecream", date: "10/12/2023" },
     { id: 2, name: "Read Articles", date: "05/12/2023" },
   ];
   // let itemsList = [];
 
+  //Store initial and future states of ToDo items list
+  const [todoItems, settoItems] = useState(initialTodoItems);
+
+  // new item add Handler - called on Add button click
+  const handleNewItem = (value, date) => {
+    if (value != "" && date != "") {
+      settoItems([
+        ...todoItems,
+        { id: ++todoItems.length, name: value, date: date },
+      ]);
+    }
+  };
+
   return (
     <center>
       <AppHeader />
       <Container>
-        <AddTodo />
-        <ErrorMessage items={itemsList}></ErrorMessage>
-        <TodoItems items={itemsList} />
+        <AddTodo onNewItem={handleNewItem} />
+        <ErrorMessage items={todoItems}></ErrorMessage>
+        <TodoItems items={todoItems} />
       </Container>
     </center>
   );
