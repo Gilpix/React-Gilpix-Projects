@@ -44,7 +44,7 @@ function AddTodo({ onNewItem }) {
           ></input>
         </div>
         <TodoButton
-          onAddButtonClick={handleOnAddButtonClick}
+          onClickHandler={handleOnAddButtonClick}
           buttonType="add"
         ></TodoButton>
       </div>

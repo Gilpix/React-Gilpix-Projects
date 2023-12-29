@@ -1,6 +1,6 @@
 import styles from "./TodoButton.module.css";
 
-let TodoButton = ({ buttonType, onAddButtonClick }) => {
+let TodoButton = ({ buttonType, onClickHandler }) => {
   return (
     <div className="col-2">
       <button
@@ -9,7 +9,7 @@ let TodoButton = ({ buttonType, onAddButtonClick }) => {
             ? `btn btn-success ${styles.todoButton}`
             : `btn btn-danger ${styles.todoButton}`
         }
-        onClick={onAddButtonClick}
+        onClick={onClickHandler}
       >
         {buttonType == "add" ? "Add" : "Delete"}
       </button>

@@ -26,13 +26,23 @@ function App() {
     }
   };
 
+  // delete item Handler - called on Delete button click
+  const handleRemoveItem = (todoId) => {
+    if (todoId != "") {
+      const newTodoItemList = todoItems.filter((item) => {
+        if (item.id != todoId) return item;
+      });
+      settoItems(newTodoItemList);
+    }
+  };
+
   return (
     <center>
       <AppHeader />
       <Container>
         <AddTodo onNewItem={handleNewItem} />
         <ErrorMessage items={todoItems}></ErrorMessage>
-        <TodoItems items={todoItems} />
+        <TodoItems items={todoItems} onDeleteItem={handleRemoveItem} />
       </Container>
     </center>
   );
