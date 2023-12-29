@@ -5,3 +5,9 @@
   letter-spacing: 2px;
   color: #367e18;
 }
+
+.listIcon {
+  font-size: 3rem;
+  margin-left: 5px;
+  color: #367e18 !important;
+}

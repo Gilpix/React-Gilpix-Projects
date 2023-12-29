@@ -18,7 +18,7 @@ export default function TodoItems({ items, onDeleteItem }) {
       {items.map((item) => {
         return (
           <div key={item.id}>
-            <div className={`row ${styles.rowAlign}`}>
+            <div className={`row ${styles.rowAlign} ${styles.itemRowAactive}`}>
               <TodoItem todoName={item.name} todoDate={item.date}></TodoItem>
               <TodoButton
                 onClickHandler={() => onDeleteItem(item.id)}

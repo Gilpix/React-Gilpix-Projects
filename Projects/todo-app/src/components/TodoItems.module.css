@@ -1,5 +1,12 @@
 .rowAlign {
   margin-top: 15px !important;
+  margin-left: 10px !important;
+  margin-right: 20px !important;
+  border-radius: 50px;
+}
+
+.itemRowAactive:hover {
+  background-color: #fdbe02;
 }
 
 .listContainer {
