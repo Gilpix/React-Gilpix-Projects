@@ -1,7 +1,7 @@
 import AddTodo from "./components/AddTodo";
 import AppHeader from "./components/AppHeader";
 import TodoItems from "./components/TodoItems";
-import ErrorMessage from "./components/ErrorMessage";
+import WelcomeMessage from "./components/WelcomeMessage";
 import "./App.css";
 import Container from "./components/Container";
 import { useState } from "react";
@@ -41,7 +41,7 @@ function App() {
       <AppHeader />
       <Container>
         <AddTodo onNewItem={handleNewItem} />
-        <ErrorMessage items={todoItems}></ErrorMessage>
+        <WelcomeMessage items={todoItems}></WelcomeMessage>
         <TodoItems items={todoItems} onDeleteItem={handleRemoveItem} />
       </Container>
     </center>

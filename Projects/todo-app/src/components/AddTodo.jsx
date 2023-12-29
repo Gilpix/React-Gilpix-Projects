@@ -30,7 +30,7 @@ function AddTodo({ onNewItem }) {
         <div className="col-6">
           <input
             type="text"
-            placeholder="enter name"
+            placeholder="enter todo name"
             value={todoName}
             onChange={(event) => handleNameChange(event)}
           ></input>
@@ -40,6 +40,9 @@ function AddTodo({ onNewItem }) {
             type="date"
             placeholder="enter date"
             value={todoDate}
+            data-placeholder="enter due date"
+            required
+            aria-required="true"
             onChange={(event) => handleDateChange(event)}
           ></input>
         </div>

@@ -8,7 +8,13 @@ export default function TodoItems({ items, onDeleteItem }) {
   };
 
   return (
-    <div className="container center m-2 item-align-left">
+    <div
+      className={
+        items.length > 0
+          ? `${styles.listContainer} container center item-align-left `
+          : "container center item-align-left"
+      }
+    >
       {items.map((item) => {
         return (
           <div key={item.id}>
