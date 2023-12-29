@@ -3,6 +3,7 @@ import CalculatorKeyPad from "./components/CalculatorKeyPad";
 import Container from "./components/Container";
 import Display from "./components/Display";
 import Header from "./components/Header";
+import { useState } from "react";
 
 function App() {
   let buttonsList = [
@@ -22,7 +23,7 @@ function App() {
       { id: 9, value: "6" },
     ],
     [
-      { id: 10, value: "x" },
+      { id: 10, value: "*" },
       { id: 11, value: "7" },
       { id: 12, value: "8" },
     ],
@@ -37,12 +38,32 @@ function App() {
     ],
   ];
 
+  //use useState to keep track of calculator inputs to ealuate the calculation
+  const [calVal, setCalVal] = useState("");
+
+  //on click Handler function - passed to children component('CalculatorKeyPad')
+  //to get the value of button clicked on calculator
+  let onClickHandler = (value) => {
+    if (value === "C") {
+      setCalVal("");
+    } else if (value === "=") {
+      let result = eval(calVal);
+      setCalVal(result);
+    } else {
+      let newCalVal1 = calVal + value;
+      setCalVal(newCalVal1);
+    }
+  };
+
   return (
     <center>
       <Header heading="Calculator"></Header>
       <Container>
-        <Display></Display>
-        <CalculatorKeyPad buttonsList={buttonsList}></CalculatorKeyPad>
+        <Display displayValue={calVal}></Display>
+        <CalculatorKeyPad
+          buttonsList={buttonsList}
+          onClickHandler={(value) => onClickHandler(value)}
+        ></CalculatorKeyPad>
       </Container>
     </center>
   );

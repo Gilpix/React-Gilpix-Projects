@@ -1,11 +1,15 @@
 import Button from "./Button";
 import KeyPadRow from "./KeyPadRow";
 
-let CalculatorKeyPad = ({ buttonsList }) => {
+let CalculatorKeyPad = ({ buttonsList, onClickHandler }) => {
   return (
     <div className="container">
       {buttonsList.map((buttonsRow) => (
-        <KeyPadRow buttonsRow={buttonsRow} key={Math.random()}></KeyPadRow>
+        <KeyPadRow
+          buttonsRow={buttonsRow}
+          onButtonClick={onClickHandler}
+          key={Math.random()}
+        ></KeyPadRow>
       ))}
     </div>
   );
