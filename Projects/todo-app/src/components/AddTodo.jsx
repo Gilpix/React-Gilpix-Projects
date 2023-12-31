@@ -18,7 +18,8 @@ function AddTodo({ onNewItem }) {
     setTodoDate(event.target.value);
   };
 
-  const handleOnAddButtonClick = () => {
+  const handleOnAddButtonClick = (event) => {
+    event.preventDefault(); //To stop form to auto submit on Submitting form
     onNewItem(todoName, todoDate);
     setTodoName("");
     setTodoDate("");
@@ -26,7 +27,7 @@ function AddTodo({ onNewItem }) {
 
   return (
     <div className="container item-align-left">
-      <div className="row ">
+      <form className="row" onSubmit={(e) => handleOnAddButtonClick(e)}>
         <div className="col-6">
           <input
             type="text"
@@ -47,10 +48,10 @@ function AddTodo({ onNewItem }) {
           ></input>
         </div>
         <TodoButton
-          onClickHandler={handleOnAddButtonClick}
+          // onClickHandler={handleOnAddButtonClick}
           buttonType="add"
         ></TodoButton>
-      </div>
+      </form>
     </div>
   );
 }
