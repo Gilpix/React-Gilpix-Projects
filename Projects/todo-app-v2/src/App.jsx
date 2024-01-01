@@ -17,7 +17,7 @@ function App() {
   const [todoItems, settoItems] = useState(initialTodoItems);
 
   // new item add Handler - called on Add button click
-  const handleNewItem = (value, date) => {
+  const addNewItem = (value, date) => {
     if (value != "" && date != "") {
       settoItems([
         ...todoItems,
@@ -27,7 +27,7 @@ function App() {
   };
 
   // delete item Handler - called on Delete button click
-  const handleRemoveItem = (todoId) => {
+  const deleteItem = (todoId) => {
     if (todoId != "") {
       const newTodoItemList = todoItems.filter((item) => {
         if (item.id != todoId) return item;
@@ -37,13 +37,19 @@ function App() {
   };
 
   return (
-    <TodoItemsFromContext.Provider value={todoItems}>
+    <TodoItemsFromContext.Provider
+      value={{
+        todoItems: todoItems,
+        addNewItem: addNewItem,
+        deleteItem: deleteItem,
+      }}
+    >
       <center>
         <AppHeader />
         <Container>
-          <AddTodo onNewItem={handleNewItem} />
+          <AddTodo />
           <WelcomeMessage></WelcomeMessage>
-          <TodoItems onDeleteItem={handleRemoveItem} />
+          <TodoItems />
         </Container>
       </center>
     </TodoItemsFromContext.Provider>

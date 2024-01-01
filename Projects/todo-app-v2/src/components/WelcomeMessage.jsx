@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { TodoItemsFromContext } from "../store/todo-items-store";
 
 let WelcomeMessage = ({ items }) => {
-  const todoItems = useContext(TodoItemsFromContext);
+  const { todoItems } = useContext(TodoItemsFromContext);
   return (
     <>
       {todoItems == 0 && (
