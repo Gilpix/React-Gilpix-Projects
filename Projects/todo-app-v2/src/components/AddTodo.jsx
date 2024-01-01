@@ -1,10 +1,10 @@
 import TodoButton from "./TodoButton";
 import styles from "./AddTodo.module.css";
 import { useRef, useContext } from "react";
-import { TodoItemsFromContext } from "../store/todo-items-store";
+import { TodoItemsContext } from "../store/todo-items-store";
 
 function AddTodo() {
-  const { addNewItem } = useContext(TodoItemsFromContext);
+  const { addNewItem } = useContext(TodoItemsContext);
   const todoNameRef = useRef();
   const todoDateRef = useRef();
 
@@ -12,9 +12,9 @@ function AddTodo() {
     event.preventDefault(); //To stop form to auto submit on Submitting form
     let todoName = todoNameRef.current.value;
     let todoDate = todoDateRef.current.value;
-    addNewItem(todoName, todoDate);
     todoNameRef.current.value = "";
     todoDateRef.current.value = "";
+    addNewItem(todoName, todoDate);
   };
 
   return (

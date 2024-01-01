@@ -1,21 +1,21 @@
 import TodoButton from "./TodoButton";
 import TodoItem from "./TodoItem";
 import styles from "./TodoItems.module.css";
-import { useContext } from "react";
-import { TodoItemsFromContext } from "../store/todo-items-store";
+import { useContext, useReducer } from "react";
+import { TodoItemsContext } from "../store/todo-items-store";
 
 export default function TodoItems() {
-  const { todoItems, deleteItem } = useContext(TodoItemsFromContext);
+  const { todoItems, deleteItem } = useContext(TodoItemsContext);
 
   return (
     <div
       className={
-        todoItems.length > 0
+        newTodoItems.length > 0
           ? `${styles.listContainer} container center item-align-left `
           : "container center item-align-left"
       }
     >
-      {todoItems.map((item) => {
+      {newTodoItems.map((item) => {
         return (
           <div key={item.id}>
             <div className={`row ${styles.rowAlign} ${styles.itemRowAactive}`}>

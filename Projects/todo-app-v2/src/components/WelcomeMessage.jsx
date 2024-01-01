@@ -1,10 +1,10 @@
 import styles from "./WelcomeMessage.module.css";
 import { PiListChecksBold } from "react-icons/pi";
 import { useContext } from "react";
-import { TodoItemsFromContext } from "../store/todo-items-store";
+import { TodoItemsContext } from "../store/todo-items-store";
 
 let WelcomeMessage = ({ items }) => {
-  const { todoItems } = useContext(TodoItemsFromContext);
+  const { todoItems } = useContext(TodoItemsContext);
   return (
     <>
       {todoItems == 0 && (
