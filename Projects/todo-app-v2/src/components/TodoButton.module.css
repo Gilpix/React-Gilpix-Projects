@@ -1,0 +1,52 @@
+.todoButton {
+  border-radius: 50px !important;
+  font-size: 0.81rem !important;
+  padding: 3px;
+  border: 0.1px solid transparent;
+}
+
+.todoButton:hover {
+  background-color: #fff;
+  font-weight: 700;
+}
+
+.todoButton:active {
+  background-color: #2b234d;
+}
+
+.todoButtonGreen {
+  background-color: #367e18;
+}
+
+.todoButtonRed {
+  border-radius: 50px !important;
+  background-color: #df0101;
+}
+
+.buttonTextAdd {
+  border-radius: 50px !important;
+  font-size: 2rem;
+  color: #fff;
+}
+
+.buttonTextAdd:hover {
+  background-color: transparent;
+  color: #367e18;
+}
+.buttonTextAdd:active {
+  color: #fff;
+}
+
+.buttonTextDelete {
+  font-size: 1.3rem;
+  color: #fff;
+}
+
+.buttonTextDelete:hover {
+  background-color: transparent;
+  color: #df0101;
+}
+
+.buttonTextDelete:active {
+  color: #fff;
+}
