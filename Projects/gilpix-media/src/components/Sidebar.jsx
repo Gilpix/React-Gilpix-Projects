@@ -1,6 +1,6 @@
 import styles from "./Sidebar.module.css";
 
-const Sidebar = () => {
+const Sidebar = ({ slectedTab, setselectedtab }) => {
   return (
     <>
       <div
@@ -19,7 +19,16 @@ const Sidebar = () => {
         <hr />
         <ul className="nav nav-pills flex-column mb-auto">
           <li className="nav-item">
-            <a href="#" className="nav-link active" aria-current="page">
+            <a
+              href="#"
+              className={`${
+                slectedTab == "Home" && "active"
+              } nav-link text-white`}
+              aria-current="page"
+              onClick={() => {
+                setselectedtab("Home");
+              }}
+            >
               <svg className="bi pe-none me-2" width="16" height="16">
                 <use xlinkHref="#home"></use>
               </svg>
@@ -27,35 +36,19 @@ const Sidebar = () => {
             </a>
           </li>
           <li>
-            <a href="#" className="nav-link text-white">
+            <a
+              href="#"
+              className={`${
+                slectedTab == "Create Post" && "active"
+              } nav-link text-white`}
+              onClick={() => {
+                setselectedtab("Create Post");
+              }}
+            >
               <svg className="bi pe-none me-2" width="16" height="16">
                 <use xlinkHref="#speedometer2"></use>
               </svg>
-              Dashboard
-            </a>
-          </li>
-          <li>
-            <a href="#" className="nav-link text-white">
-              <svg className="bi pe-none me-2" width="16" height="16">
-                <use xlinkHref="#table"></use>
-              </svg>
-              Orders
-            </a>
-          </li>
-          <li>
-            <a href="#" className="nav-link text-white">
-              <svg className="bi pe-none me-2" width="16" height="16">
-                <use xlinkHref="#grid"></use>
-              </svg>
-              Products
-            </a>
-          </li>
-          <li>
-            <a href="#" className="nav-link text-white">
-              <svg className="bi pe-none me-2" width="16" height="16">
-                <use xlinkHref="#people-circle"></use>
-              </svg>
-              Customers
+              Create Post
             </a>
           </li>
         </ul>
