@@ -13,3 +13,13 @@
 .postCard {
   width: 17rem;
 }
+
+.deleteButton {
+  float: right;
+  font-size: 1.7rem;
+  color: #f33832;
+}
+
+.deleteButton:hover {
+  color: #9c0500;
+}

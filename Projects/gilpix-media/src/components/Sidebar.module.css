@@ -2,6 +2,11 @@
   height: 100vh;
 }
 
-.navButton {
+.navSelectedButton {
   background-color: #ae9454 !important;
+  color: white !important;
+}
+
+a {
+  color: #ae9454 !important;
 }

@@ -22,8 +22,8 @@ const Sidebar = ({ slectedTab, setselectedtab }) => {
             <a
               href="#"
               className={`${
-                slectedTab == "Home" && styles.navButton
-              } nav-link text-white`}
+                slectedTab == "Home" && styles.navSelectedButton
+              } nav-link`}
               aria-current="page"
               onClick={() => {
                 setselectedtab("Home");
@@ -39,8 +39,8 @@ const Sidebar = ({ slectedTab, setselectedtab }) => {
             <a
               href="#"
               className={`${
-                slectedTab == "Create Post" && styles.navButton
-              } nav-link text-white`}
+                slectedTab == "Create Post" && styles.navSelectedButton
+              } nav-link`}
               onClick={() => {
                 setselectedtab("Create Post");
               }}

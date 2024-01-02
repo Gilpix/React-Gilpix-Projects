@@ -19,7 +19,7 @@ const initialPost = [
       "https://t3.ftcdn.net/jpg/02/70/04/84/240_F_270048422_EeOeFgmqMRGxHF4KszqzG7lga86pBIbG.jpg",
     reactions: 9,
     userId: "112",
-    tags: ["vaccation", "enjoy"],
+    tags: ["vaccation", "enjoy", "beach", "sea"],
   },
 ];
 

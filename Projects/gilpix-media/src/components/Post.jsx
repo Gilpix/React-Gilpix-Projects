@@ -1,3 +1,4 @@
+import { MdDeleteForever } from "react-icons/md";
 import styles from "./Post.module.css";
 
 const Post = ({ post }) => {
@@ -32,6 +33,7 @@ const Post = ({ post }) => {
               </span>
             );
           })}
+          <MdDeleteForever className={styles.deleteButton}></MdDeleteForever>
         </div>
       </div>
     </div>
