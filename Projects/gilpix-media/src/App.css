@@ -1,3 +1,9 @@
+:root {
+  --primary: #ae9454;
+  --secondry: #f8cc5d;
+  --extra: #c0a197;
+}
+
 .app-container {
   height: 100%;
   display: flex;

@@ -1,0 +1,15 @@
+.hashtags {
+  margin-right: 5px;
+  background-color: #ae9454;
+  padding: 7px 7x !important;
+  border-radius: 7px !important;
+}
+
+.badge {
+  background-color: #ae9454 !important ;
+  opacity: 1;
+}
+
+.postCard {
+  width: 17rem;
+}
