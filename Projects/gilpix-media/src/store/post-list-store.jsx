@@ -19,12 +19,9 @@ const initialPost = [
       "https://t3.ftcdn.net/jpg/02/70/04/84/240_F_270048422_EeOeFgmqMRGxHF4KszqzG7lga86pBIbG.jpg",
     reactions: 9,
     userId: "112",
-    tags: ["vaccation", "enjoy", "beach", "sea"],
+    tags: ["vaccation", "enjoy", "sea"],
   },
 ];
-
-const createPost = () => {};
-const deletePost = () => {};
 
 export const PostList = createContext({
   postList: [],
@@ -32,15 +29,42 @@ export const PostList = createContext({
   deletePost: () => {},
 });
 
+//Reducer Fuction to perform actions
 const postListReducer = (currentPostList, action) => {
   let newPostList = currentPostList;
   // if(action.payload.type=="NEW_POST"){}
-  // else if(action.payload.type=="NEW_POST"){}
+  if (action.type == "DELETE_POST") {
+    newPostList = currentPostList.filter((post) => {
+      if (post.id != action.payload.postId) return post;
+    });
+  }
   return newPostList;
 };
 
 const PostListProvider = ({ children }) => {
   const [postList, dispatchPostList] = useReducer(postListReducer, initialPost);
+
+  const createPost = (
+    title,
+    description,
+    imageSrc,
+    reactions,
+    userId,
+    tags
+  ) => {
+    let addPostAction = {
+      type: "ADD_POST",
+      payload: { title, description, imageSrc, reactions, userId, tags },
+    };
+    dispatchPostList(addPostAction);
+  };
+  const deletePost = (postId) => {
+    let deletePostAction = {
+      type: "DELETE_POST",
+      payload: { postId },
+    };
+    dispatchPostList(deletePostAction);
+  };
 
   return (
     <PostList.Provider

@@ -1,7 +1,11 @@
 import { MdDeleteForever } from "react-icons/md";
 import styles from "./Post.module.css";
+import { useContext } from "react";
+import { PostList as PostListData } from "../store/post-list-store";
 
 const Post = ({ post }) => {
+  const { deletePost } = useContext(PostListData);
+
   return (
     <div className="col-3">
       <div className={` card ${styles.postCard} }`}>
@@ -33,7 +37,10 @@ const Post = ({ post }) => {
               </span>
             );
           })}
-          <MdDeleteForever className={styles.deleteButton}></MdDeleteForever>
+          <MdDeleteForever
+            className={styles.deleteButton}
+            onClick={() => deletePost(post.id)}
+          ></MdDeleteForever>
         </div>
       </div>
     </div>
