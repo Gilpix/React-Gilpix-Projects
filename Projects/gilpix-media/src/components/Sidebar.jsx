@@ -14,15 +14,15 @@ const Sidebar = ({ slectedTab, setselectedtab }) => {
           <svg className="bi pe-none me-2" width="40" height="32">
             <use xlinkHref="#bootstrap"></use>
           </svg>
-          <span className="fs-4">Sidebar</span>
+          <span className="fs-4">GilPix</span>
         </a>
         <hr />
-        <ul className="nav nav-pills flex-column mb-auto">
+        <ul className="nav nav-pills flex-column mb-auto ">
           <li className="nav-item">
             <a
               href="#"
               className={`${
-                slectedTab == "Home" && "active"
+                slectedTab == "Home" && styles.navButton
               } nav-link text-white`}
               aria-current="page"
               onClick={() => {
@@ -39,7 +39,7 @@ const Sidebar = ({ slectedTab, setselectedtab }) => {
             <a
               href="#"
               className={`${
-                slectedTab == "Create Post" && "active"
+                slectedTab == "Create Post" && styles.navButton
               } nav-link text-white`}
               onClick={() => {
                 setselectedtab("Create Post");
