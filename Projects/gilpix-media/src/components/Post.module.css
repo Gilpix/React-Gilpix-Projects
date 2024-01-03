@@ -11,7 +11,13 @@
 }
 
 .postCard {
-  width: 17rem;
+  width: 22rem;
+}
+
+.image {
+  height: 220px !important;
+  width: auto;
+  object-fit: cover;
 }
 
 .deleteButton {
@@ -22,4 +28,20 @@
 
 .deleteButton:hover {
   color: #9c0500;
+}
+
+.title {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.description {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }

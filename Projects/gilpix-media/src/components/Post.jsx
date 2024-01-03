@@ -7,17 +7,17 @@ const Post = ({ post }) => {
   const { deletePost } = useContext(PostListData);
 
   return (
-    <div className="col-3">
+    <div className="col-4 mb-5">
       <div className={` card ${styles.postCard} }`}>
         <img
           src={post.imageSrc}
-          className="card-img-top"
+          className={`${styles.image} card-img-top `}
           width="auto"
-          height="150px"
+          height="180px"
           alt="..."
         />
         <div className="card-body">
-          <h5 className="card-title">
+          <h5 className={`${styles.title} card-title`}>
             {post.title}
             <span
               className={`${styles.badge} position-absolute top-0 start-100 translate-middle badge rounded-pill`}
@@ -26,7 +26,9 @@ const Post = ({ post }) => {
               <span className="visually-hidden">unread messages</span>
             </span>
           </h5>
-          <p className="card-text">{post.description}</p>
+          <p className={`${styles.description} card-text`}>
+            {post.description}
+          </p>
           {post.tags.map((tag) => {
             return (
               <span

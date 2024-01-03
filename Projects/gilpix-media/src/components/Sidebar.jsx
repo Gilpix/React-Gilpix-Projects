@@ -52,8 +52,8 @@ const Sidebar = ({ slectedTab, setselectedtab }) => {
             </a>
           </li>
         </ul>
-        <hr />
-        <div className="dropdown">
+        {/* <hr /> */}
+        {/* <div className="dropdown">
           <a
             href="#"
             className="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
@@ -94,7 +94,7 @@ const Sidebar = ({ slectedTab, setselectedtab }) => {
               </a>
             </li>
           </ul>
-        </div>
+        </div> */}
       </div>
     </>
   );
