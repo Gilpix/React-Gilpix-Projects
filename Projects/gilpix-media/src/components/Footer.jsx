@@ -1,10 +1,15 @@
 import styles from "./Footer.module.css";
+import {
+  FaInstagramSquare,
+  FaSquareFacebook,
+  FaSquareTwitter,
+} from "react-icons/fa";
 
 const Footer = () => {
   return (
     <div className="container ">
       <footer
-        className={`d-flex flex-wrap justify-content-between align-items-center py-3 mt-4 border-top ${styles.footer}`}
+        className={`d-flex flex-wrap justify-content-between align-items-center py-3 mt-4 border-top p-4 ${styles.footer}`}
       >
         <div className="col-md-4 d-flex align-items-center">
           <a
@@ -23,23 +28,23 @@ const Footer = () => {
         <ul className="nav col-md-4 justify-content-end list-unstyled d-flex">
           <li className="ms-3">
             <a className="text-body-secondary" href="#">
-              <svg className="bi" width="24" height="24">
-                <use xlinkHref="#twitter"></use>
-              </svg>
-            </a>
-          </li>
-          <li className="ms-3">
-            <a className="text-body-secondary" href="#">
-              <svg className="bi" width="24" height="24">
-                <use xlinkHref="#instagram"></use>
-              </svg>
-            </a>
-          </li>
-          <li className="ms-3">
-            <a className="text-body-secondary" href="#">
-              <svg className="bi" width="24" height="24">
+              <FaSquareFacebook className="bi" width="42" height="42">
                 <use xlinkHref="#facebook"></use>
-              </svg>
+              </FaSquareFacebook>
+            </a>
+          </li>
+          <li className="ms-3">
+            <a className="text-body-secondary " href="#">
+              <FaInstagramSquare className="bi" width="42" height="42">
+                <use xlinkHref="#instagram"></use>
+              </FaInstagramSquare>
+            </a>
+          </li>
+          <li className="ms-3">
+            <a className="text-body-secondary " href="#">
+              <FaSquareTwitter className="bi" width="42" height="42">
+                <use xlinkHref="#twitter"></use>
+              </FaSquareTwitter>
             </a>
           </li>
         </ul>
