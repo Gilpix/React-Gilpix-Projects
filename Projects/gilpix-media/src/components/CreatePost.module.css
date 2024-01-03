@@ -1,3 +1,9 @@
+.formContainer {
+  margin: 50px 50px;
+  padding: 40px;
+  background-color: #f3f1ef;
+  border-radius: 15px;
+}
 .formLabel {
   margin-top: 25px;
   font-size: 0.81rem;
@@ -8,10 +14,17 @@
 }
 
 .submitButton {
-  background-color: #f8cc5d !important;
+  background-color: #ae9454 !important;
   border-color: transparent !important;
 }
 
 .submitButton:hover {
-  background-color: #ae9454 !important;
+  background-color: #776536 !important;
+}
+.submitButton:active {
+  background-color: #574824 !important;
+}
+
+input:focus {
+  outline: none !important;
 }

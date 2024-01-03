@@ -1,30 +1,56 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { PostList as PostListData } from "../store/post-list-store";
-import { Row, Container, Col, Alert } from "react-bootstrap";
+import { Row, Container, Col, Button } from "react-bootstrap";
 import styles from "./CreatePost.module.css";
+import Alert from "./Alert";
 
 const CreatePost = () => {
   const { createPost } = useContext(PostListData);
+  //To change status of Error message for any empty input
+  const [errorAlert, setErrorAlert] = useState(false);
+  //To change status of Success message for post creation
+  const [successAlert, setSuccessAlert] = useState(false);
 
   const addNewPost = (event) => {
     event.preventDefault();
     const title = event.target.elements.title.value;
     const description = event.target.elements.description.value;
     const imgSrc = event.target.elements.imgSrc.value;
-    const tags = event.target.elements.tags.value.split(",");
+    const tags = event.target.elements.tags.value
+      .split(",")
+      .filter((r) => r !== "");
 
-    createPost(title, description, imgSrc, "user1", 1, tags);
+    if (title == "" || description == "" || imgSrc == "" || tags.length == 0)
+      setErrorAlert(true);
+    else {
+      createPost(title, description, imgSrc, "user1", 1, tags);
+      setSuccessAlert(true);
+      event.target.elements.title.value = "";
+      event.target.elements.description.value = "";
+      event.target.elements.imgSrc.value = "";
+      event.target.elements.tags.value = "";
+    }
   };
 
   return (
     <Container>
-      {/* <Alert
-        variant="danger"
-        onClose={() => setShow(false)}
-        dismissible
-      ></Alert> */}
+      {errorAlert && (
+        <Alert
+          alertText={"Plese enter all fields to create a post"}
+          setAlert={setErrorAlert}
+          variant={"danger"}
+        ></Alert>
+      )}
+      {successAlert && (
+        <Alert
+          alertText={"Post created successfully!!!"}
+          setAlert={setSuccessAlert}
+          variant={"success"}
+        ></Alert>
+      )}
+
       <form
-        className="container mt-5 px-5"
+        className={styles.formContainer}
         onSubmit={(event) => {
           addNewPost(event);
         }}
