@@ -1,0 +1,17 @@
+.formLabel {
+  margin-top: 25px;
+  font-size: 0.81rem;
+}
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: rgb(174, 148, 84, 0.5) !important;
+}
+
+.submitButton {
+  background-color: #f8cc5d !important;
+  border-color: transparent !important;
+}
+
+.submitButton:hover {
+  background-color: #ae9454 !important;
+}

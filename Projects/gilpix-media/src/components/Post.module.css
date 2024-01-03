@@ -3,6 +3,7 @@
   background-color: #ae9454;
   padding: 7px 7x !important;
   border-radius: 7px !important;
+  float: left;
 }
 
 .badge {
