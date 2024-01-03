@@ -1,9 +1,7 @@
 import styles from "./Footer.module.css";
-import {
-  FaInstagramSquare,
-  FaSquareFacebook,
-  FaSquareTwitter,
-} from "react-icons/fa";
+import { FaInstagramSquare } from "react-icons/fa";
+import { FaSquareFacebook } from "react-icons/fa6";
+import { FaSquareTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
