@@ -102,36 +102,36 @@ const initialPost = [
     userId: "112",
     tags: ["vaccation", "enjoy", "sea"],
   },
-  {
-    id: "4",
-    title: "Going To Goa",
-    description: "After 5 years, I am again visiting GOA for vaccations",
-    imageSrc:
-      "https://t4.ftcdn.net/jpg/01/99/40/65/240_F_199406556_UZiQunnsxYidehW8yQvyEB1o2c1Zoez8.jpg",
-    reactions: 9,
-    userId: "112",
-    tags: ["vaccation", "enjoy", "sea"],
-  },
-  {
-    id: "5",
-    title: "Going To Goa",
-    description: "After 5 years, I am again visiting GOA for vaccations",
-    imageSrc:
-      "https://t3.ftcdn.net/jpg/02/78/28/90/240_F_278289051_WvLiTenCgNSTj9MVMpr0tRcrkhbh7YOU.jpg",
-    reactions: 9,
-    userId: "112",
-    tags: ["vaccation", "enjoy", "sea"],
-  },
-  {
-    id: "6",
-    title: "Going To Goa",
-    description: "After 5 years, I am again visiting GOA for vaccations",
-    imageSrc:
-      "https://t4.ftcdn.net/jpg/05/71/05/97/240_F_571059766_XkVSK5BOfHepjTfxmDYQa7LK6UAryR73.jpg",
-    reactions: 9,
-    userId: "112",
-    tags: ["vaccation", "enjoy", "sea"],
-  },
+  //   {
+  //     id: "4",
+  //     title: "Going To Goa",
+  //     description: "After 5 years, I am again visiting GOA for vaccations",
+  //     imageSrc:
+  //       "https://t4.ftcdn.net/jpg/01/99/40/65/240_F_199406556_UZiQunnsxYidehW8yQvyEB1o2c1Zoez8.jpg",
+  //     reactions: 9,
+  //     userId: "112",
+  //     tags: ["vaccation", "enjoy", "sea"],
+  //   },
+  //   {
+  //     id: "5",
+  //     title: "Going To Goa",
+  //     description: "After 5 years, I am again visiting GOA for vaccations",
+  //     imageSrc:
+  //       "https://t3.ftcdn.net/jpg/02/78/28/90/240_F_278289051_WvLiTenCgNSTj9MVMpr0tRcrkhbh7YOU.jpg",
+  //     reactions: 9,
+  //     userId: "112",
+  //     tags: ["vaccation", "enjoy", "sea"],
+  //   },
+  //   {
+  //     id: "6",
+  //     title: "Going To Goa",
+  //     description: "After 5 years, I am again visiting GOA for vaccations",
+  //     imageSrc:
+  //       "https://t4.ftcdn.net/jpg/05/71/05/97/240_F_571059766_XkVSK5BOfHepjTfxmDYQa7LK6UAryR73.jpg",
+  //     reactions: 9,
+  //     userId: "112",
+  //     tags: ["vaccation", "enjoy", "sea"],
+  //   },
 ];
 
 export default PostListProvider;

@@ -1,6 +1,7 @@
 import Post from "./Post";
 import { useContext, useState } from "react";
 import { PostList as PostListData } from "../store/post-list-store";
+import WelcomeMessage from "./WelcomeMessage";
 
 function postListChunksFun(list) {
   return list.reduce(
@@ -20,6 +21,7 @@ const PostList = () => {
   return (
     <div className="container my-5 pb-5" align="center">
       <div className="row">
+        {postList.length == 0 && <WelcomeMessage></WelcomeMessage>}
         {postList.map((post) => {
           return <Post key={post.id} post={post}></Post>;
         })}

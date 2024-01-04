@@ -1,0 +1,35 @@
+.logo {
+  font-size: 5.5rem;
+  color: rgb(174, 148, 84);
+  margin-right: 1.2rem;
+}
+
+.h1 {
+  color: rgb(174, 148, 84) !important;
+}
+
+.filledButton {
+  background-color: #ae9454 !important;
+  border-color: #ae9454 !important;
+}
+
+.filledButton:hover {
+  background-color: #776536 !important;
+}
+
+.hollowButton {
+  background-color: #ffffff !important;
+  border-color: #ae9454 !important;
+  color: #ae9454 !important;
+}
+
+.hollowButton:hover {
+  background-color: #776536 !important;
+  border-color: #776536 !important;
+  color: #ffffff !important;
+}
+
+.filledButton:active,
+.hollowButton:active {
+  background-color: #574824 !important;
+}
