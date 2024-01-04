@@ -132,36 +132,6 @@ const initialPost = [
     userId: "112",
     tags: ["vaccation", "enjoy", "sea"],
   },
-  {
-    id: "7",
-    title: "Going To Goa",
-    description: "After 5 years, I am again visiting GOA for vaccations",
-    imageSrc:
-      "https://t4.ftcdn.net/jpg/02/00/14/63/240_F_200146338_NTWg7HF65p5z6IUIXzxJbkJ5zlEt3gnG.jpg",
-    reactions: 9,
-    userId: "112",
-    tags: ["vaccation", "enjoy", "sea"],
-  },
-  {
-    id: "8",
-    title: "Going To Goa",
-    description: "After 5 years, I am again visiting GOA for vaccations",
-    imageSrc:
-      "https://t3.ftcdn.net/jpg/00/68/92/98/240_F_68929807_cgLugyRoD5W01VRhtxbDTBuPMergIofl.jpg",
-    reactions: 9,
-    userId: "112",
-    tags: ["vaccation", "enjoy", "sea"],
-  },
-  {
-    id: "9",
-    title: "Going To Goa",
-    description: "After 5 years, I am again visiting GOA for vaccations",
-    imageSrc:
-      "https://t4.ftcdn.net/jpg/03/32/23/41/240_F_332234163_HqfsssFwranJJahdo2jZlgUi9CuOQBWY.jpg",
-    reactions: 9,
-    userId: "112",
-    tags: ["vaccation", "enjoy", "sea"],
-  },
 ];
 
 export default PostListProvider;

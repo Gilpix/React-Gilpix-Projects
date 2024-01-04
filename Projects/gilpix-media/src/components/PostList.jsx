@@ -18,7 +18,7 @@ function postListChunksFun(list) {
 const PostList = () => {
   const { postList } = useContext(PostListData);
   return (
-    <div className="container my-5 pb-4" align="center">
+    <div className="container my-5 pb-5" align="center">
       <div className="row">
         {postList.map((post) => {
           return <Post key={post.id} post={post}></Post>;
