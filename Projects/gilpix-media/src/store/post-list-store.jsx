@@ -1,8 +1,10 @@
 import { createContext, useReducer } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 export const PostList = createContext({
   postList: [],
   createPost: () => {},
+  addInitialPosts: () => {},
   deletePost: () => {},
 });
 
@@ -13,15 +15,18 @@ const postListReducer = (currentPostList, action) => {
     newPostList = [
       ...currentPostList,
       {
-        id: toString(parseInt(currentPostList) + 1),
+        id: uuidv4(),
         title: action.payload.title,
         description: action.payload.description,
-        imageSrc: action.payload.imageSrc,
-        reactions: 0,
-        userId: action.payload.reactions,
+        imageUrl: action.payload.imageUrl,
+        reactions: action.payload.reactions || 0,
+        userId: action.payload.userId,
         tags: action.payload.tags,
       },
     ];
+  }
+  if (action.type == "ADD_INITIAL_POSTS") {
+    newPostList = action.payload.posts;
   }
   if (action.type == "DELETE_POST") {
     newPostList = currentPostList.filter((post) => {
@@ -37,14 +42,14 @@ const PostListProvider = ({ children }) => {
   const createPost = (
     title,
     description,
-    imageSrc,
+    imageUrl,
     reactions,
     userId,
     tags
   ) => {
     let addPostAction = {
       type: "NEW_POST",
-      payload: { title, description, imageSrc, reactions, userId, tags },
+      payload: { title, description, imageUrl, reactions, userId, tags },
     };
     dispatchPostList(addPostAction);
   };
@@ -55,6 +60,13 @@ const PostListProvider = ({ children }) => {
     };
     dispatchPostList(deletePostAction);
   };
+  const addInitialPosts = (posts) => {
+    let addInitialPostsAction = {
+      type: "ADD_INITIAL_POSTS",
+      payload: { posts },
+    };
+    dispatchPostList(addInitialPostsAction);
+  };
 
   return (
     <PostList.Provider
@@ -62,6 +74,7 @@ const PostListProvider = ({ children }) => {
         postList,
         createPost,
         deletePost,
+        addInitialPosts,
       }}
     >
       {children}
@@ -75,7 +88,7 @@ const initialPost = [
     title: "Happy New Yaer",
     description:
       "Hello welcome to the the year 2024. Make this the best year of your life",
-    imageSrc:
+    imageUrl:
       "https://t4.ftcdn.net/jpg/06/29/87/79/240_F_629877971_BkE3j0UaDG1d0iGTurYTpDcY0OH4GWHm.jpg",
     reactions: 2,
     userId: "11",
@@ -85,7 +98,7 @@ const initialPost = [
     id: "2",
     title: "Going To Goa",
     description: "After 5 years, I am again visiting GOA for vaccations",
-    imageSrc:
+    imageUrl:
       "https://t3.ftcdn.net/jpg/02/70/04/84/240_F_270048422_EeOeFgmqMRGxHF4KszqzG7lga86pBIbG.jpg",
     reactions: 9,
     userId: "112",
@@ -96,7 +109,7 @@ const initialPost = [
     title: "Longines Global Champions Tour",
     description:
       "We can’t hide our excitement any more…only one week to go!! 🇲🇽🇲🇽🇲🇽.🐎",
-    imageSrc:
+    imageUrl:
       "https://pbs.twimg.com/media/FQ4JytWVsAAYdW8?format=jpg&name=medium",
     reactions: 9,
     userId: "112",
@@ -106,7 +119,7 @@ const initialPost = [
   //     id: "4",
   //     title: "Going To Goa",
   //     description: "After 5 years, I am again visiting GOA for vaccations",
-  //     imageSrc:
+  //     imageUrl:
   //       "https://t4.ftcdn.net/jpg/01/99/40/65/240_F_199406556_UZiQunnsxYidehW8yQvyEB1o2c1Zoez8.jpg",
   //     reactions: 9,
   //     userId: "112",
@@ -116,7 +129,7 @@ const initialPost = [
   //     id: "5",
   //     title: "Going To Goa",
   //     description: "After 5 years, I am again visiting GOA for vaccations",
-  //     imageSrc:
+  //     imageUrl:
   //       "https://t3.ftcdn.net/jpg/02/78/28/90/240_F_278289051_WvLiTenCgNSTj9MVMpr0tRcrkhbh7YOU.jpg",
   //     reactions: 9,
   //     userId: "112",
@@ -126,7 +139,7 @@ const initialPost = [
   //     id: "6",
   //     title: "Going To Goa",
   //     description: "After 5 years, I am again visiting GOA for vaccations",
-  //     imageSrc:
+  //     imageUrl:
   //       "https://t4.ftcdn.net/jpg/05/71/05/97/240_F_571059766_XkVSK5BOfHepjTfxmDYQa7LK6UAryR73.jpg",
   //     reactions: 9,
   //     userId: "112",

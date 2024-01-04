@@ -3,7 +3,7 @@ import { IoHomeOutline } from "react-icons/io5";
 import { MdOutlinePostAdd } from "react-icons/md";
 import { SlSocialReddit } from "react-icons/sl";
 
-const Sidebar = ({ slectedTab, setselectedtab }) => {
+const Sidebar = ({ slectedTab, setSelectedTab }) => {
   return (
     <>
       <div
@@ -29,7 +29,7 @@ const Sidebar = ({ slectedTab, setselectedtab }) => {
               } nav-link`}
               aria-current="page"
               onClick={() => {
-                setselectedtab("Home");
+                setSelectedTab("Home");
               }}
             >
               <svg className="bi pe-none me-2" width="24" height="24">
@@ -45,7 +45,7 @@ const Sidebar = ({ slectedTab, setselectedtab }) => {
                 slectedTab == "Create Post" && styles.navSelectedButton
               } nav-link`}
               onClick={() => {
-                setselectedtab("Create Post");
+                setSelectedTab("Create Post");
               }}
             >
               <svg className="bi pe-none me-2" width="24" height="24">

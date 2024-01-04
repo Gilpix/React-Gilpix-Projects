@@ -10,7 +10,7 @@ const Post = ({ post }) => {
     <div className="col-4 mb-5">
       <div className={` card ${styles.postCard} }`}>
         <img
-          src={post.imageSrc}
+          src={post.imageUrl}
           className={`${styles.image} card-img-top `}
           width="auto"
           height="180px"

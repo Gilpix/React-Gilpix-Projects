@@ -14,24 +14,24 @@ const CreatePost = () => {
   //To save the users input
   const titleElement = useRef("");
   const descriptionElement = useRef("");
-  const imgSrcElement = useRef("");
+  const imageUrlElement = useRef("");
   const tagsElement = useRef([]);
 
   const addNewPost = (event) => {
     event.preventDefault();
     const title = titleElement.current.value;
     const description = descriptionElement.current.value;
-    const imgSrc = imgSrcElement.current.value;
+    const imageUrl = imageUrlElement.current.value;
     const tags = tagsElement.current.value.split(",").filter((r) => r !== "");
 
-    if (title == "" || description == "" || imgSrc == "" || tags.length == 0)
+    if (title == "" || description == "" || imageUrl == "" || tags.length == 0)
       setErrorAlert(true);
     else {
-      createPost(title, description, imgSrc, "user1", 1, tags);
+      createPost(title, description, imageUrl, 1, "user1", tags);
       setSuccessAlert(true);
       titleElement.current.value = "";
       descriptionElement.current.value = "";
-      imgSrcElement.current.value = "";
+      imageUrlElement.current.value = "";
       tagsElement.current.value = "";
     }
   };
@@ -74,15 +74,15 @@ const CreatePost = () => {
           </Col>
           <Col>
             <label
-              htmlFor="imgSrc"
+              htmlFor="imageUrl"
               className={`form-label ${styles.formLabel}`}
             >
               Image
             </label>
             <input
               type="text"
-              name="imgSrc"
-              ref={imgSrcElement}
+              name="imageUrl"
+              ref={imageUrlElement}
               className="form-control"
               placeholder="enter post image url"
             />

@@ -1,7 +1,7 @@
 import styles from "./WelcomeMessage.module.css";
 import { SlSocialReddit } from "react-icons/sl";
 
-const WelcomeMessage = () => {
+const WelcomeMessage = ({ onGetPostList, setSelectedTab, slectedTab }) => {
   return (
     <div className="px-4 py-5 my-5 text-center">
       <SlSocialReddit className={styles.logo}>
@@ -17,11 +17,15 @@ const WelcomeMessage = () => {
           <button
             type="button"
             className={`btn btn-primary btn-md px-5 gap-3 ${styles.filledButton}`}
+            onClick={onGetPostList}
           >
             Fetch Posts
           </button>
           <button
             type="button"
+            onClick={() => {
+              setSelectedTab("Create Post");
+            }}
             className={`btn btn-primary btn-md px-4 gap-3 ${styles.hollowButton}`}
           >
             Create New Post
