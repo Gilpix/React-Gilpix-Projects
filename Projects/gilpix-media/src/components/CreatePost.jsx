@@ -124,12 +124,12 @@ const CreatePost = () => {
           </Col>
         </Row>
         <Row>
-          <Col className="text-end">
+          <Col className="text-end mt-3">
             <button
               type="submit"
-              className={`btn btn-primary  ${styles.submitButton}`}
+              className={`btn btn-primary px-3  ${styles.submitButton}`}
             >
-              Submit
+              Post
             </button>
           </Col>
         </Row>

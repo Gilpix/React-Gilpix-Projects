@@ -1,6 +1,7 @@
 import styles from "./Sidebar.module.css";
 import { IoHomeOutline } from "react-icons/io5";
 import { MdOutlinePostAdd } from "react-icons/md";
+import { SlSocialReddit } from "react-icons/sl";
 
 const Sidebar = ({ slectedTab, setselectedtab }) => {
   return (
@@ -13,9 +14,9 @@ const Sidebar = ({ slectedTab, setselectedtab }) => {
           href="/"
           className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
         >
-          <svg className="bi pe-none me-2" width="40" height="32">
-            <use xlinkHref="#bootstrap"></use>
-          </svg>
+          <SlSocialReddit className={styles.navLogo}>
+            <use xlinkHref="#Gilpix"></use>
+          </SlSocialReddit>
           <span className="fs-4">GilPix</span>
         </a>
         <hr />
