@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useRef } from "react";
 import { PostList as PostListData } from "../store/post-list-store";
 import { Row, Container, Col, Button } from "react-bootstrap";
 import styles from "./CreatePost.module.css";
@@ -11,24 +11,28 @@ const CreatePost = () => {
   //To change status of Success message for post creation
   const [successAlert, setSuccessAlert] = useState(false);
 
+  //To save the users input
+  const titleElement = useRef("");
+  const descriptionElement = useRef("");
+  const imgSrcElement = useRef("");
+  const tagsElement = useRef([]);
+
   const addNewPost = (event) => {
     event.preventDefault();
-    const title = event.target.elements.title.value;
-    const description = event.target.elements.description.value;
-    const imgSrc = event.target.elements.imgSrc.value;
-    const tags = event.target.elements.tags.value
-      .split(",")
-      .filter((r) => r !== "");
+    const title = titleElement.current.value;
+    const description = descriptionElement.current.value;
+    const imgSrc = imgSrcElement.current.value;
+    const tags = tagsElement.current.value.split(",").filter((r) => r !== "");
 
     if (title == "" || description == "" || imgSrc == "" || tags.length == 0)
       setErrorAlert(true);
     else {
       createPost(title, description, imgSrc, "user1", 1, tags);
       setSuccessAlert(true);
-      event.target.elements.title.value = "";
-      event.target.elements.description.value = "";
-      event.target.elements.imgSrc.value = "";
-      event.target.elements.tags.value = "";
+      titleElement.current.value = "";
+      descriptionElement.current.value = "";
+      imgSrcElement.current.value = "";
+      tagsElement.current.value = "";
     }
   };
 
@@ -63,8 +67,9 @@ const CreatePost = () => {
             <input
               type="text"
               name="title"
+              ref={titleElement}
               className="form-control"
-              placeholder="enter post title"
+              placeholder="how are you feeling today..."
             />
           </Col>
           <Col>
@@ -77,6 +82,7 @@ const CreatePost = () => {
             <input
               type="text"
               name="imgSrc"
+              ref={imgSrcElement}
               className="form-control"
               placeholder="enter post image url"
             />
@@ -93,8 +99,9 @@ const CreatePost = () => {
             <input
               type="text"
               name="description"
+              ref={descriptionElement}
               className="form-control"
-              placeholder="write about the post"
+              placeholder="write more about it..."
             />
           </Col>
         </Row>
@@ -106,12 +113,14 @@ const CreatePost = () => {
             <input
               type="text"
               name="tags"
+              ref={tagsElement}
               className="form-control"
-              placeholder="write related tags. ex : vaccation, enjoy, "
+              placeholder="write related tags. Seprate tags with comma or space. ex : vaccation, enjoy   "
             />
-            <div id="emailHelp" className="form-text">
-              Seprate tags with comma or space.
-            </div>
+            <div
+              id="emailHelp"
+              className="form-text text-secondary font-italic font-weight-light text-small"
+            ></div>
           </Col>
         </Row>
         <Row>

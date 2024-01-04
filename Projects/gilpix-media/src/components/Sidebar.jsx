@@ -1,11 +1,13 @@
 import styles from "./Sidebar.module.css";
+import { IoHomeOutline } from "react-icons/io5";
+import { MdOutlinePostAdd } from "react-icons/md";
 
 const Sidebar = ({ slectedTab, setselectedtab }) => {
   return (
     <>
       <div
         className={`${styles.sidebar} d-flex flex-column flex-shrink-0 p-3 text-bg-dark `}
-        style={{ width: "280px" }}
+        style={{ width: "220px" }}
       >
         <a
           href="/"
@@ -29,10 +31,10 @@ const Sidebar = ({ slectedTab, setselectedtab }) => {
                 setselectedtab("Home");
               }}
             >
-              <svg className="bi pe-none me-2" width="16" height="16">
-                <use xlinkHref="#home"></use>
+              <svg className="bi pe-none me-2" width="24" height="24">
+                <IoHomeOutline className={styles.navIcon}></IoHomeOutline>
               </svg>
-              Home
+              <span>Home</span>
             </a>
           </li>
           <li>
@@ -45,8 +47,8 @@ const Sidebar = ({ slectedTab, setselectedtab }) => {
                 setselectedtab("Create Post");
               }}
             >
-              <svg className="bi pe-none me-2" width="16" height="16">
-                <use xlinkHref="#speedometer2"></use>
+              <svg className="bi pe-none me-2" width="24" height="24">
+                <MdOutlinePostAdd className={styles.navIcon}></MdOutlinePostAdd>
               </svg>
               Create Post
             </a>

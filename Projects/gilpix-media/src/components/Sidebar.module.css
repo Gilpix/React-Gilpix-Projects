@@ -1,5 +1,5 @@
 .sidebar {
-  height: 92vh;
+  height: 93vh;
 }
 
 .navSelectedButton {
@@ -9,4 +9,8 @@
 
 a {
   color: #ae9454 !important;
+}
+
+.navIcon {
+  font-size: 1.2rem;
 }
