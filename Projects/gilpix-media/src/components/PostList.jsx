@@ -1,5 +1,5 @@
 import Post from "./Post";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { PostList as PostListData } from "../store/post-list-store";
 import WelcomeMessage from "./WelcomeMessage";
 import { v4 as uuidv4 } from "uuid";
@@ -8,8 +8,14 @@ const PostList = ({ selectedTab, setSelectedTab }) => {
   const { postList } = useContext(PostListData);
   const { addInitialPosts } = useContext(PostListData);
 
+  //Initially we were using button to FETCH list of posts but with useEffect
+  //we can call the fetch function at initial render of cmponent
+  useEffect(() => {
+    fetchPostList();
+  }, []);
+
   //Fetch function to get Post from dummyJson products API
-  const handleOnGetPostList = () => {
+  const fetchPostList = () => {
     fetch("https://dummyjson.com/products")
       .then((res) => res.json())
       .then((res) => {
@@ -27,6 +33,7 @@ const PostList = ({ selectedTab, setSelectedTab }) => {
         addInitialPosts(posts);
       });
   };
+
   return (
     <div className="container my-5 pb-5" align="center">
       <div className="row">
@@ -34,7 +41,7 @@ const PostList = ({ selectedTab, setSelectedTab }) => {
           <WelcomeMessage
             slectedTab={selectedTab}
             setSelectedTab={setSelectedTab}
-            onGetPostList={handleOnGetPostList}
+            onGetPostList={fetchPostList}
           ></WelcomeMessage>
         )}
         {postList.map((post) => {
