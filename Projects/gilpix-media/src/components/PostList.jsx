@@ -1,12 +1,16 @@
 import Post from "./Post";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { PostList as PostListData } from "../store/post-list-store";
 import WelcomeMessage from "./WelcomeMessage";
 import { v4 as uuidv4 } from "uuid";
+import LoadingSpinner from "./LoadingSpinner";
 
 const PostList = ({ selectedTab, setSelectedTab }) => {
   const { postList } = useContext(PostListData);
   const { addInitialPosts } = useContext(PostListData);
+
+  //to record Loading Spinner visibility
+  const [loading, setLoading] = useState(false);
 
   //Initially we were using button to FETCH list of posts but with useEffect
   //we can call the fetch function at initial render of cmponent
@@ -16,6 +20,7 @@ const PostList = ({ selectedTab, setSelectedTab }) => {
 
   //Fetch function to get Post from dummyJson products API
   const fetchPostList = () => {
+    setLoading(true);
     fetch("https://dummyjson.com/products")
       .then((res) => res.json())
       .then((res) => {
@@ -30,23 +35,26 @@ const PostList = ({ selectedTab, setSelectedTab }) => {
             tags: [post.brand, post.category],
           };
         });
+        setLoading(false);
         addInitialPosts(posts);
       });
   };
 
   return (
     <div className="container my-5 pb-5" align="center">
+      {loading && <LoadingSpinner></LoadingSpinner>}
       <div className="row">
-        {postList.length == 0 && (
+        {!loading && postList.length == 0 && (
           <WelcomeMessage
             slectedTab={selectedTab}
             setSelectedTab={setSelectedTab}
             onGetPostList={fetchPostList}
           ></WelcomeMessage>
         )}
-        {postList.map((post) => {
-          return <Post key={post.id} post={post}></Post>;
-        })}
+        {!loading &&
+          postList.map((post) => {
+            return <Post key={post.id} post={post}></Post>;
+          })}
       </div>
     </div>
 
