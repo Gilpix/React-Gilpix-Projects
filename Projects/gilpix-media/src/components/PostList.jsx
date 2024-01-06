@@ -15,13 +15,20 @@ const PostList = ({ selectedTab, setSelectedTab }) => {
   //Initially we were using button to FETCH list of posts but with useEffect
   //we can call the fetch function at initial render of cmponent
   useEffect(() => {
-    fetchPostList();
+    //Used to abort network request
+    const controller = new AbortController();
+    const signal = controller.signal;
+    fetchPostList(signal);
+    //CLEANUP METHOD - run when component is removed(user move to other component)
+    return () => {
+      controller.abort(); // abort the request
+    };
   }, []);
 
   //Fetch function to get Post from dummyJson products API
-  const fetchPostList = () => {
+  const fetchPostList = (signal) => {
     setLoading(true);
-    fetch("https://dummyjson.com/products")
+    fetch("https://dummyjson.com/products", { signal }) // Here signal is sent to use allow aborting network request when needed
       .then((res) => res.json())
       .then((res) => {
         let posts = res.products.map((post) => {
