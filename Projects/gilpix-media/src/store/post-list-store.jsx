@@ -1,11 +1,18 @@
-import { createContext, useReducer, useCallback } from "react";
+import {
+  createContext,
+  useReducer,
+  useCallback,
+  useState,
+  useEffect,
+} from "react";
 import { v4 as uuidv4 } from "uuid";
 
 export const PostList = createContext({
   postList: [],
+  loading: false,
   createPost: () => {},
-  addInitialPosts: () => {},
   deletePost: () => {},
+  fetchPostListFromServer: () => {},
 });
 
 //Reducer Fuction to perform actions
@@ -13,7 +20,6 @@ const postListReducer = (currentPostList, action) => {
   let newPostList = currentPostList;
   if (action.type == "NEW_POST") {
     newPostList = [
-      ...currentPostList,
       {
         id: uuidv4(),
         title: action.payload.title,
@@ -23,6 +29,7 @@ const postListReducer = (currentPostList, action) => {
         userId: action.payload.userId,
         tags: action.payload.tags,
       },
+      ...currentPostList,
     ];
   }
   if (action.type == "ADD_INITIAL_POSTS") {
@@ -38,6 +45,8 @@ const postListReducer = (currentPostList, action) => {
 
 const PostListProvider = ({ children }) => {
   const [postList, dispatchPostList] = useReducer(postListReducer, initialPost);
+  //to record Loading Spinner visibility
+  const [loading, setLoading] = useState(false);
 
   //useCallback Hook is used to preserve below function reference across renders to prevent unnecessary re-renders
   const createPost = useCallback(
@@ -73,13 +82,51 @@ const PostListProvider = ({ children }) => {
     [dispatchPostList]
   );
 
+  //Initially we were using button to FETCH list of posts but with useEffect
+  //we can call the fetch function at initial render of component
+  useEffect(() => {
+    //Used to abort network request
+    const controller = new AbortController();
+    const signal = controller.signal;
+
+    fetchPostListFromServer(signal);
+
+    //CLEANUP METHOD - run when component is removed(user move to other component)
+    return () => {
+      controller.abort(); // abort the request
+    };
+  }, []);
+
+  //Fetch function to get Post from dummyJson products API
+  const fetchPostListFromServer = (signal) => {
+    setLoading(true);
+    fetch("https://dummyjson.com/products", signal) // Here signal is sent to use allow aborting network request when needed
+      .then((res) => res.json())
+      .then((res) => {
+        let posts = res.products.map((post) => {
+          return {
+            id: uuidv4(),
+            title: post.title,
+            description: post.description,
+            imageUrl: post.thumbnail,
+            reactions: Math.floor(Math.random() * 20 + 0),
+            userId: "user1",
+            tags: [post.brand, post.category],
+          };
+        });
+        setLoading(false);
+        addInitialPosts(posts);
+      });
+  };
+
   return (
     <PostList.Provider
       value={{
         postList,
+        loading,
         createPost,
         deletePost,
-        addInitialPosts,
+        fetchPostListFromServer,
       }}
     >
       {children}
