@@ -28,7 +28,7 @@ const PostList = ({ selectedTab, setSelectedTab }) => {
   //Fetch function to get Post from dummyJson products API
   const fetchPostList = (signal) => {
     setLoading(true);
-    fetch("https://dummyjson.com/products", { signal }) // Here signal is sent to use allow aborting network request when needed
+    fetch("https://dummyjson.com/products", signal) // Here signal is sent to use allow aborting network request when needed
       .then((res) => res.json())
       .then((res) => {
         let posts = res.products.map((post) => {

@@ -1,4 +1,4 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, useCallback } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 export const PostList = createContext({
@@ -39,34 +39,39 @@ const postListReducer = (currentPostList, action) => {
 const PostListProvider = ({ children }) => {
   const [postList, dispatchPostList] = useReducer(postListReducer, initialPost);
 
-  const createPost = (
-    title,
-    description,
-    imageUrl,
-    reactions,
-    userId,
-    tags
-  ) => {
-    let addPostAction = {
-      type: "NEW_POST",
-      payload: { title, description, imageUrl, reactions, userId, tags },
-    };
-    dispatchPostList(addPostAction);
-  };
-  const deletePost = (postId) => {
-    let deletePostAction = {
-      type: "DELETE_POST",
-      payload: { postId },
-    };
-    dispatchPostList(deletePostAction);
-  };
-  const addInitialPosts = (posts) => {
-    let addInitialPostsAction = {
-      type: "ADD_INITIAL_POSTS",
-      payload: { posts },
-    };
-    dispatchPostList(addInitialPostsAction);
-  };
+  //useCallback Hook is used to preserve below function reference across renders to prevent unnecessary re-renders
+  const createPost = useCallback(
+    (title, description, imageUrl, reactions, userId, tags) => {
+      let addPostAction = {
+        type: "NEW_POST",
+        payload: { title, description, imageUrl, reactions, userId, tags },
+      };
+      dispatchPostList(addPostAction);
+    },
+    [dispatchPostList]
+  );
+
+  const deletePost = useCallback(
+    (postId) => {
+      let deletePostAction = {
+        type: "DELETE_POST",
+        payload: { postId },
+      };
+      dispatchPostList(deletePostAction);
+    },
+    [dispatchPostList]
+  );
+
+  const addInitialPosts = useCallback(
+    (posts) => {
+      let addInitialPostsAction = {
+        type: "ADD_INITIAL_POSTS",
+        payload: { posts },
+      };
+      dispatchPostList(addInitialPostsAction);
+    },
+    [dispatchPostList]
+  );
 
   return (
     <PostList.Provider
