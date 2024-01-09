@@ -3,7 +3,7 @@ import { PostList as PostListData } from "../store/post-list-store";
 import { Row, Container, Col, Button } from "react-bootstrap";
 import styles from "./CreatePost.module.css";
 import Alert from "./Alert";
-import { useNavigate } from "react-router-dom";
+import { Form, useNavigate } from "react-router-dom";
 
 const CreatePost = () => {
   const { createPost } = useContext(PostListData);
@@ -14,11 +14,12 @@ const CreatePost = () => {
   //To allow navigation to other url of the app
   const navigate = useNavigate();
 
+  //No Longer needed as React router provided FORM
   //To save the users input
-  const titleElement = useRef("");
-  const descriptionElement = useRef("");
-  const imageUrlElement = useRef("");
-  const tagsElement = useRef([]);
+  // const titleElement = useRef("");
+  // const descriptionElement = useRef("");
+  // const imageUrlElement = useRef("");
+  // const tagsElement = useRef([]);
 
   const addNewPost = (event) => {
     event.preventDefault();
@@ -57,11 +58,12 @@ const CreatePost = () => {
         ></Alert>
       )}
 
-      <form
+      <Form
+        method="POST"
         className={styles.formContainer}
-        onSubmit={(event) => {
-          addNewPost(event);
-        }}
+        // onSubmit={(event) => {
+        //   addNewPost(event);
+        // }}
       >
         <Row className="row">
           <Col>
@@ -71,7 +73,7 @@ const CreatePost = () => {
             <input
               type="text"
               name="title"
-              ref={titleElement}
+              // ref={titleElement}
               className="form-control"
               placeholder="how are you feeling today..."
             />
@@ -86,7 +88,7 @@ const CreatePost = () => {
             <input
               type="text"
               name="imageUrl"
-              ref={imageUrlElement}
+              // ref={imageUrlElement}
               className="form-control"
               placeholder="enter post image url"
             />
@@ -103,7 +105,7 @@ const CreatePost = () => {
             <input
               type="text"
               name="description"
-              ref={descriptionElement}
+              // ref={descriptionElement}
               className="form-control"
               placeholder="write more about it..."
             />
@@ -117,7 +119,7 @@ const CreatePost = () => {
             <input
               type="text"
               name="tags"
-              ref={tagsElement}
+              // ref={tagsElement}
               className="form-control"
               placeholder="write related tags. Seprate tags with comma or space. ex : vaccation, enjoy   "
             />
@@ -137,8 +139,31 @@ const CreatePost = () => {
             </button>
           </Col>
         </Row>
-      </form>
+      </Form>
     </Container>
   );
+};
+
+export const createPostAction = async (data) => {
+  console.log("Start");
+  const formData = await data.request.formData();
+  const postData = Object.fromEntries(formData);
+  postData.tags = postData.tags.split(" ");
+  fetch("https://dummyjson.com/products/add", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      title: postData.title,
+      description: postData.title,
+      price: 549,
+      discountPercentage: 12.96,
+      rating: 4.69,
+      stock: 94,
+      brand: postData.tags[0],
+      category: postData.tags[0],
+      thumbnail: postData.imageUrl,
+      images: [postData.imageUrl, postData.imageUrl],
+    }),
+  }).then((res) => res.json());
 };
 export default CreatePost;
