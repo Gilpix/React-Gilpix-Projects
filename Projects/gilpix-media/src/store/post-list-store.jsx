@@ -82,20 +82,21 @@ const PostListProvider = ({ children }) => {
     [dispatchPostList]
   );
 
+  //No longer needed as initial post should be fetched by loader before in routes rendered
   //Initially we were using button to FETCH list of posts but with useEffect
   //we can call the fetch function at initial render of component
-  useEffect(() => {
-    //Used to abort network request
-    const controller = new AbortController();
-    const signal = controller.signal;
+  // useEffect(() => {
+  //   //Used to abort network request
+  //   const controller = new AbortController();
+  //   const signal = controller.signal;
 
-    fetchPostListFromServer(signal);
+  //   fetchPostListFromServer(signal);
 
-    //CLEANUP METHOD - run when component is removed(user move to other component)
-    return () => {
-      controller.abort(); // abort the request
-    };
-  }, []);
+  //   //CLEANUP METHOD - run when component is removed(user move to other component)
+  //   return () => {
+  //     controller.abort(); // abort the request
+  //   };
+  // }, []);
 
   //Fetch function to get Post from dummyJson products API
   const fetchPostListFromServer = (signal) => {
