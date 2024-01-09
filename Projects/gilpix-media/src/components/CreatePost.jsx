@@ -3,6 +3,7 @@ import { PostList as PostListData } from "../store/post-list-store";
 import { Row, Container, Col, Button } from "react-bootstrap";
 import styles from "./CreatePost.module.css";
 import Alert from "./Alert";
+import { useNavigate } from "react-router-dom";
 
 const CreatePost = () => {
   const { createPost } = useContext(PostListData);
@@ -10,6 +11,8 @@ const CreatePost = () => {
   const [errorAlert, setErrorAlert] = useState(false);
   //To change status of Success message for post creation
   const [successAlert, setSuccessAlert] = useState(false);
+  //To allow navigation to other url of the app
+  const navigate = useNavigate();
 
   //To save the users input
   const titleElement = useRef("");
@@ -33,6 +36,7 @@ const CreatePost = () => {
       descriptionElement.current.value = "";
       imageUrlElement.current.value = "";
       tagsElement.current.value = "";
+      navigate("/");
     }
   };
 

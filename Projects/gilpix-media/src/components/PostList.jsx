@@ -5,7 +5,7 @@ import WelcomeMessage from "./WelcomeMessage";
 import { v4 as uuidv4 } from "uuid";
 import LoadingSpinner from "./LoadingSpinner";
 
-const PostList = ({ selectedTab, setSelectedTab }) => {
+const PostList = () => {
   const { postList, loading, fetchPostListFromServer } = useContext(
     PostListData
   );
@@ -16,8 +16,6 @@ const PostList = ({ selectedTab, setSelectedTab }) => {
       <div className="row">
         {!loading && postList.length == 0 && (
           <WelcomeMessage
-            slectedTab={selectedTab}
-            setSelectedTab={setSelectedTab}
             onGetPostList={fetchPostListFromServer}
           ></WelcomeMessage>
         )}
@@ -27,19 +25,6 @@ const PostList = ({ selectedTab, setSelectedTab }) => {
           })}
       </div>
     </div>
-
-    // <div className="container mt-5" align="center">
-    //   <div className="row">
-    //     {postList.map((postsSet) => {
-    //       <h1>HHHHHHH</h1>;
-    //       // <div className="row">
-    //       //   {postsSet.map((post) => {
-    //       //     return <Post key={post.id} post={post}></Post>;
-    //       //   })}
-    //       // </div>;
-    //     })}
-    //   </div>
-    // </div>
   );
 };
 

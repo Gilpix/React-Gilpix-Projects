@@ -2,8 +2,9 @@ import styles from "./Sidebar.module.css";
 import { IoHomeOutline } from "react-icons/io5";
 import { MdOutlinePostAdd } from "react-icons/md";
 import { SlSocialReddit } from "react-icons/sl";
+import { Link } from "react-router-dom";
 
-const Sidebar = ({ slectedTab, setSelectedTab }) => {
+const Sidebar = () => {
   return (
     <>
       <div
@@ -22,37 +23,20 @@ const Sidebar = ({ slectedTab, setSelectedTab }) => {
         <hr />
         <ul className="nav nav-pills flex-column mb-auto ">
           <li className="nav-item">
-            <a
-              href="#"
-              className={`${
-                slectedTab == "Home" && styles.navSelectedButton
-              } nav-link`}
-              aria-current="page"
-              onClick={() => {
-                setSelectedTab("Home");
-              }}
-            >
+            <Link to="/" className="nav-link" aria-current="page">
               <svg className="bi pe-none me-2" width="24" height="24">
                 <IoHomeOutline className={styles.navIcon}></IoHomeOutline>
               </svg>
               <span>Home</span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#"
-              className={`${
-                slectedTab == "Create Post" && styles.navSelectedButton
-              } nav-link`}
-              onClick={() => {
-                setSelectedTab("Create Post");
-              }}
-            >
+            <Link to="/create-post" className="nav-link">
               <svg className="bi pe-none me-2" width="24" height="24">
                 <MdOutlinePostAdd className={styles.navIcon}></MdOutlinePostAdd>
               </svg>
               Create Post
-            </a>
+            </Link>
           </li>
         </ul>
         {/* <hr /> */}

@@ -1,7 +1,9 @@
 import styles from "./WelcomeMessage.module.css";
 import { SlSocialReddit } from "react-icons/sl";
+import { useNavigate } from "react-router-dom";
 
-const WelcomeMessage = ({ onGetPostList, setSelectedTab, slectedTab }) => {
+const WelcomeMessage = ({ onGetPostList }) => {
+  const navigate = useNavigate();
   return (
     <div className="px-4 py-5 my-5 text-center">
       <SlSocialReddit className={styles.logo}>
@@ -24,7 +26,7 @@ const WelcomeMessage = ({ onGetPostList, setSelectedTab, slectedTab }) => {
           <button
             type="button"
             onClick={() => {
-              setSelectedTab("Create Post");
+              navigate("/create-post");
             }}
             className={`btn btn-primary btn-md px-4 gap-3 ${styles.hollowButton}`}
           >
