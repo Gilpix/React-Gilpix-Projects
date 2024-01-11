@@ -40,3 +40,11 @@
 .read-the-docs {
   color: #888;
 }
+
+.number_input {
+  border: 1px solid rgb(126, 127, 129) !important;
+  outline-color: transparent;
+  border-radius: 15px;
+  padding: 3px 15px;
+  margin: auto 10px !important;
+}
