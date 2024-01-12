@@ -1,0 +1,9 @@
+.alertButton {
+  float: right;
+  font-size: 1.9rem;
+  color: #776536;
+}
+
+.alertButton:hover {
+  color: #574824;
+}

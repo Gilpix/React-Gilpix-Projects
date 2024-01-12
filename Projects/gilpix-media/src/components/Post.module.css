@@ -1,0 +1,48 @@
+.hashtags {
+  margin-right: 5px;
+  background-color: #ae9454;
+  padding: 7px 7x !important;
+  border-radius: 7px !important;
+  float: left;
+}
+
+.badge {
+  background-color: #ae9454 !important ;
+  opacity: 1;
+}
+
+.postCard {
+  width: 22rem;
+}
+
+.image {
+  height: 220px !important;
+  width: auto;
+  object-fit: cover;
+}
+
+.deleteButton {
+  float: right;
+  font-size: 1.7rem;
+  color: #f33832;
+}
+
+.deleteButton:hover {
+  color: #9c0500;
+}
+
+.title {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.description {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}

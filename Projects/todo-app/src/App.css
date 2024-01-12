@@ -1,0 +1,11 @@
+/* - - - - - GLOBAL CSS - - - - - -
+Used in more than one components */
+
+html body {
+  background-color: #2b234d;
+  height: 100%;
+}
+
+.item-align-left {
+  text-align: left;
+}

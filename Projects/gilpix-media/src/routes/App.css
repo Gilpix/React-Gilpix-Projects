@@ -1,0 +1,17 @@
+:root {
+  --primary: rgb(174, 148, 84);
+  --secondry: #f8cc5d;
+  --extra: #c0a197;
+}
+
+.app-container {
+  height: 100vh;
+  display: flex;
+  min-height: 100%;
+  position: relative;
+  padding-bottom: [footer-height];
+}
+
+.content {
+  width: 100%;
+}

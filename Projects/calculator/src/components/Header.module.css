@@ -1,0 +1,10 @@
+.heading {
+  margin-top: 30px;
+  margin-bottom: 50px;
+  font-size: 4.5rem;
+  text-transform: uppercase;
+  color: #3c8af0;
+  letter-spacing: 8px;
+  font-weight: 700;
+  text-shadow: 2px 2px 3px #003983;
+}
